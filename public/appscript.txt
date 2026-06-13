@@ -1,0 +1,51 @@
+// Handles POST requests from your portfolio contact form
+// and saves each submission as a new row in the Google Sheet.
+function doPost(e) {
+  // Lock prevents two submissions writing at the exact same time.
+  const lock = LockService.getScriptLock();
+  lock.tryLock(10000);
+
+  try {
+    const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+
+    // If the sheet is empty, add the header row first.
+    if (sheet.getLastRow() === 0) {
+      sheet.appendRow(["Timestamp", "Name", "Email", "Subject", "Message"]);
+    }
+
+    const data = JSON.parse(e.postData.contents);
+
+    sheet.appendRow([
+      new Date(),
+      data.name || "",
+      data.email || "",
+      data.subject || "",
+      data.message || "",
+    ]);
+
+    return ContentService
+      .createTextOutput(JSON.stringify({ result: "success" }))
+      .setMimeType(ContentService.MimeType.JSON);
+  } catch (err) {
+    return ContentService
+      .createTextOutput(JSON.stringify({ result: "error", error: String(err) }))
+      .setMimeType(ContentService.MimeType.JSON);
+  } finally {
+    lock.releaseLock();
+  }
+}
+
+// Optional: lets you open the deployment URL in a browser to confirm it's live.
+function doGet() {
+  return ContentService
+    .createTextOutput(JSON.stringify({ status: "Contact API is running" }))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+
+"https://github.com/NewtonAdhikari",
+    "https://www.linkedin.com/in/newton-adhikari",
+    "https://www.instagram.com/victorix_newton",
+    "https://twitter.com/newton_adhi2722",
+    "https://www.facebook.com/newton.adhikari.501510",
+    "https://www.researchgate.net/profile/Newton-Adhikari-3"
