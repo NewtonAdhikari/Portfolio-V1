@@ -680,7 +680,7 @@ export default function Home() {
                   <div className="hero-profile-ring" />
                     <div className="hero-profile-image">
                       <img
-                        src="/profile.png"
+                        src="/profile.webp"
                           alt="Newton Adhikari"
                           className="profile-image"
                         />
@@ -1309,13 +1309,13 @@ export default function Home() {
                   <div className="social-value">@newton_adhi2722</div>
                 </div>
               </a>
-              <a href="https://www.instagram.com/victorix_newton" target="_blank" rel="noopener noreferrer" className="glass-card social-card">
+              <a href="https://www.instagram.com/drissac_newton" target="_blank" rel="noopener noreferrer" className="glass-card social-card">
                 <div className="social-icon">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
                 </div>
                 <div>
                   <div className="social-label">Instagram</div>
-                  <div className="social-value">@victorix_newton</div>
+                  <div className="social-value">@drissac_newton</div>
                 </div>
               </a>
               <a href="https://www.facebook.com/newton.adhikari.501510" target="_blank" rel="noopener noreferrer" className="glass-card social-card">
@@ -1339,7 +1339,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-      
+        
          {/* ═══ MARQUEE ═══ */}
         <div className="marquee-container">
           <div className="marquee-track">
